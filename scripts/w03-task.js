@@ -60,10 +60,27 @@ let divideNumbers = () => {
 document.querySelector('#divideNumbers').addEventListener('click', divideNumbers);
 
 
-/* Decision Structure */
+
 
 let date = new Date();
 let currentYear = date.getFullYear();
+
+/* Decision Structure */
+const discout = (subtotal, isMember) => {
+    if (isMember) {
+        return subtotal - (subtotal * 0.2)
+    } else {
+        return subtotal
+    }
+}
+
+document.querySelector("#getTotal").addEventListener("click", function() {
+    let subtotal = Number(document.getElementById("subtotal").value);
+    let isMember = document.getElementById("member").checked;
+    let total = discout(subtotal, isMember);
+    document.querySelector("#total").innerHTML = `$${total.toFixed(2)}`;
+
+})
 
 document.querySelector('#year').textContent = currentYear;
 

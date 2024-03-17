@@ -1,7 +1,4 @@
-/* LESSON 3 - Programming Tasks */
-
-/* FUNCTIONS */
-/* Function Definition - Add Numbers */
+/* Function Declaration - Add Numbers */
 function add(add1, add2){
     return add1 + add2;
 }
@@ -43,8 +40,7 @@ let multiplyNumbers = () => {
 
 document.querySelector('#multiplyNumbers').addEventListener('click', multiplyNumbers);
 
-
-/* Open Function Use - Divide Numbers */
+/* Function Declaration - Divide Numbers */
 function divide(dividend, divisor){
     return dividend/divisor;
 }
@@ -59,14 +55,8 @@ let divideNumbers = () => {
 
 document.querySelector('#divideNumbers').addEventListener('click', divideNumbers);
 
-
-
-
-let date = new Date();
-let currentYear = date.getFullYear();
-
 /* Decision Structure */
-const discout = (subtotal, isMember) => {
+const discount = (subtotal, isMember) => {
     if (isMember) {
         return subtotal - (subtotal * 0.2)
     } else {
@@ -77,36 +67,30 @@ const discout = (subtotal, isMember) => {
 document.querySelector("#getTotal").addEventListener("click", function() {
     let subtotal = Number(document.getElementById("subtotal").value);
     let isMember = document.getElementById("member").checked;
-    let total = discout(subtotal, isMember);
+    let total = discount(subtotal, isMember);
     document.querySelector("#total").innerHTML = `$${total.toFixed(2)}`;
-
 })
 
-document.querySelector('#year').textContent = currentYear;
-
-/* ARRAY METHODS - Functional Programming */
-/* Output Source Array */
+/* Array Methods - Functional Programming */
 let numArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
 document.getElementById('array').textContent = numArray;
 
-
-/* Output Odds Only Array */
 let odd = numArray.filter(num => num % 2 === 1);
 document.querySelector('#odds').textContent = odd;
 
-
-/* Output Evens Only Array */
 let even = numArray.filter(num => num % 2 === 0);
 document.querySelector('#evens').textContent = even;
 
-/* Output Sum of Org. Array */
-let sumNum = numArray.reduce((sum, number) => sum+number);
+let sumNum = numArray.reduce((sum, number) => sum + number);
 document.querySelector('#sumOfArray').textContent = sumNum;
 
-/* Output Multiplied by 2 Array */
 let multiplyNum = numArray.map((num)  => num * 2);
 document.querySelector('#multiplied').textContent = multiplyNum;
 
-/* Output Sum of Multiplied by 2 Array */
 let sumofMultiplied = multiplyNum.reduce((sum, num) => sum + num);
 document.querySelector('#sumOfMultiplied').textContent = sumofMultiplied;
+
+/* Output Current Year */
+let date = new Date();
+let currentYear = date.getFullYear();
+document.querySelector('#year').textContent = currentYear;
